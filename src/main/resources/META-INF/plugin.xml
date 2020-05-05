@@ -1,11 +1,14 @@
 <idea-plugin>
     <id>com.xiaxiayige.fluter_assets_sync</id>
     <name>flutterAssetSync</name>
-    <vendor email="xiaxiayige@yourcompany.com" url="">xiaxiayige</vendor>
+    <vendor email="xiaxiayige@yourcompany.com" url="https://github.com/xiaxiayige/FlutterAssetSync">xiaxiayige</vendor>
 
     <description><![CDATA[
     version:1.0.0<br>
-    自动导入assets文件夹下的图片资源到yaml文件中，自动生成R文件,方便引用<br>
+    自动导入assets文件夹下的图片资源到yaml文件中，并且自动生成R文件<br>
+
+    version:1.0.2<br>
+    自动导入assets文件夹下的图片资源到yaml文件中，并且自动生成R文件<br>
     ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html

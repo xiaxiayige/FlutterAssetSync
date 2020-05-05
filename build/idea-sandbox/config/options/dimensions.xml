@@ -1,9 +1,0 @@
-<application>
-  <component name="DimensionService">
-    <location key="WELCOME_SCREEN.0.0.1920.1080" x="968" y="432" />
-    <location key="search.everywhere.popup.0.0.1920.1080" x="623" y="225" />
-    <location key="SettingsEditor.0.0.1920.1080" x="445" y="162" />
-    <location key="com.intellij.ide.util.TipDialog.0.0.1920.1080" x="0" y="0" />
-    <size key="search.everywhere.popup.0.0.1920.1080" width="672" height="678" />
-  </component>
-</application>

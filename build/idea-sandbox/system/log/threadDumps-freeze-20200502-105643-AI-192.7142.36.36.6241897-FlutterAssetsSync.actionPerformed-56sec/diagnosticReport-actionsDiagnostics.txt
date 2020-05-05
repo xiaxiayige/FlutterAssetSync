@@ -1,6 +1,0 @@
-Actions:
-Action when freeze detected: com.xiaxiayige.help.FlutterAssetsSync (com.xiaxiayige.help.FlutterAssetsSync)
-Action duration when freeze detected: 12752ms
-Action finished: com.xiaxiayige.help.FlutterAssetsSync (com.xiaxiayige.help.FlutterAssetsSync), duration: 62310ms
-Action when freeze ended: (no action)
-Action duration when freeze ended: 0ms

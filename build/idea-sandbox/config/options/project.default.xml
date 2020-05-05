@@ -1,0 +1,9 @@
+<application>
+  <component name="ProjectManager">
+    <defaultProject>
+      <component name="PropertiesComponent">
+        <property name="android.sdk.path" value="E:/adt-bundle-windows/AndroidNewSdk" />
+      </component>
+    </defaultProject>
+  </component>
+</application>

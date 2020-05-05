@@ -1,0 +1,22 @@
+<idea-plugin>
+  <version>1.0-SNAPSHOT</version>
+  <change-notes>
+      Add change notes here.&lt;br&gt;
+      &lt;em&gt;most HTML tags may be used&lt;/em&gt;</change-notes>
+  <idea-version since-build="192.7142" until-build="192.*"/>
+  <id>com.xiaxiayige.fluter_assets_sync</id>
+  <name>flutterAssetSync</name>
+  <vendor email="xiaxiayige@yourcompany.com" url="">xiaxiayige</vendor>
+  <description>
+    version:1.0.0&lt;br&gt;
+    自动导入assets文件夹下的图片资源到yaml文件中，自动生成R文件,方便引用&lt;br&gt;
+    </description>
+  <depends>com.intellij.modules.platform</depends>
+  <extensions defaultExtensionNs="com.intellij"/>
+  <actions>
+    <action id="com.xiaxiayige.help.FlutterAssetsSync" class="com.xiaxiayige.help.FlutterAssetsSync" text="FlutterAssetSync" description="自动导入assets文件夹下的图片资源到yaml文件中，自动生成R文件,方便引用">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="alt" second-keystroke="K"/>
+    </action>
+  </actions>
+</idea-plugin>

@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>com.xiaxiayige.fluter_assets_sync</id>
+    <name>flutterAssetSync</name>
+    <vendor email="xiaxiayige@yourcompany.com" url="">xiaxiayige</vendor>
+
+    <description><![CDATA[
+    version:1.0.0<br>
+    自动导入assets文件夹下的图片资源到yaml文件中，自动生成R文件,方便引用<br>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="com.xiaxiayige.help.FlutterAssetsSync" class="com.xiaxiayige.help.FlutterAssetsSync"
+                text="FlutterAssetSync" description="自动导入assets文件夹下的图片资源到yaml文件中，自动生成R文件,方便引用">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt" second-keystroke="K"/>
+        </action>
+    </actions>
+</idea-plugin>

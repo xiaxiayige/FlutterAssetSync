@@ -32,8 +32,8 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 patchPluginXml {
-    changeNotes """
+    changeNotes """ 
       Flutter Assets Image Sync</br>
       Automatic generated r.dart file ,reference image resource file .(Same as Android R.class)<br>
-      see https://github.com/xiaxiayige/FlutterAssetSync """
+      Plugin Detail See https://github.com/xiaxiayige/FlutterAssetSync """
 }

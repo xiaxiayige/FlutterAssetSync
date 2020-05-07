@@ -1,13 +1,10 @@
 <idea-plugin>
     <id>com.xiaxiayige.fluter_assets_sync</id>
-    <name>flutterAssetSync</name>
+    <name>FlutterAssetSync</name>
     <vendor email="xiaxiayige@yourcompany.com" url="https://github.com/xiaxiayige/FlutterAssetSync">xiaxiayige</vendor>
 
     <description><![CDATA[
     version:1.0.0<br>
-    自动导入assets文件夹下的图片资源到yaml文件中，并且自动生成R文件<br>
-
-    version:1.0.2<br>
     自动导入assets文件夹下的图片资源到yaml文件中，并且自动生成R文件<br>
     ]]></description>
 
@@ -22,7 +19,7 @@
     <actions>
         <!-- Add your actions here -->
         <action id="com.xiaxiayige.help.FlutterAssetsSync" class="com.xiaxiayige.help.FlutterAssetsSync"
-                text="FlutterAssetSync" description="自动导入assets文件夹下的图片资源到yaml文件中，自动生成R文件,方便引用">
+                text="FlutterAssetSync" description="auto import images file to assets folder ,and Automatic generated r.dart file (Same as Android R.class)">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="alt" second-keystroke="K"/>
         </action>

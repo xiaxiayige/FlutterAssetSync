@@ -18,14 +18,14 @@ Flutter Assets Image Sync, Automatic generated r.dart file ,reference image reso
 	create folder 'assets' folder of your project
 
 
-![](1.gif)
+![ScreenShot1](1.gif)
 
 
 ## Setp 2
 
 	Copy Image resource to assets folder or assets/xxx child folder (only support parent folder name = 'assets')
 
-![](imgs/2.gif)
+![ScreenShot2](imgs/2.gif)
 
 ## Setp 3
 
@@ -43,7 +43,7 @@ Flutter Assets Image Sync, Automatic generated r.dart file ,reference image reso
 ####### (gif is old version,new version support auto update pubspec.yaml file ，not create pubspec.yaml.temp file)	
 
 
-![](imgs/3.gif)
+![ScreenShot3](imgs/3.gif)
 
 
 current version create temp file（pubspec.yaml.temp），copy  pubspec.yaml.temp  all data to pubspec.yaml</u>

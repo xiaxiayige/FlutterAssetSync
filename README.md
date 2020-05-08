@@ -19,7 +19,7 @@ Flutter Assets Image Sync, Automatic generated r.dart file ,reference image reso
 
 <br>
 
-<img src="1.gif?raw=true" />
+![ScreenShot2](1.gif)
 
 
 ## Setp 2
@@ -41,13 +41,10 @@ Flutter Assets Image Sync, Automatic generated r.dart file ,reference image reso
 
 	Execute plugin
 
-####### (gif is old version,new version support auto update pubspec.yaml file ，not create pubspec.yaml.temp file)	
+####### (auto update pubspec.yaml file ，not create pubspec.yaml.temp file)	
 
 
 ![ScreenShot3](imgs/3.gif)
-
-
-current version create temp file（pubspec.yaml.temp），copy  pubspec.yaml.temp  all data to pubspec.yaml</u>
 
 
 ## Setp 5

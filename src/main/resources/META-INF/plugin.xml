@@ -1,10 +1,34 @@
 <idea-plugin>
     <id>com.xiaxiayige.fluter_assets_sync</id>
     <name>FlutterAssetSync</name>
-    <vendor email="xiaxiayige@yourcompany.com" url="https://github.com/xiaxiayige/FlutterAssetSync">xiaxiayige</vendor>
+    <vendor email="xiaxiayige@163.com" url="https://github.com/xiaxiayige/FlutterAssetSync">xiaxiayige</vendor>
 
     <description><![CDATA[
-    Flutter Assets Image Sync, Automatic generated r.dart file ,reference image resource file .(Same as Android R.class)</br>
+
+    Flutter Assets Image Sync, Automatic generated r.dart file ,reference image resource file.
+    (Same as Android R.class),more info see <a href='https://github.com/xiaxiayige/FlutterAssetSync'>GitHub</a></p>
+    <br>
+    <h2>1.How To Use</h2>
+    <ul>
+        <li>0.create folder 'assets' folder of your project</li>
+        <li>1.Copy Image resource to assets folder or assets/xxx child folder (<font color='red'>only support parent folder name = 'assets'</font>)</li>
+        <li>2.Click tools menu -> Select flutterAssetSync </li>
+    </ul>
+
+    <p>Result:Automatic generated r.dart file,And auto update pubspec.yaml file</p>
+    <br>
+    effect eg:
+    <br>
+    <font color='green'>
+    Image.asset(R.fileName)
+    <br>
+    Image.asset(R.foldername_fileName)</font>
+    <br>
+    <h2>2.Note</h2>
+     Support child folder,but please keep parent folder name = 'assets' ,<br>
+     <font color='red'>only parent support folder name = 'assets'</font><br>
+     <br>(eg:parent folder name is asset,image... is not support, eg: support type of  assets/image,assets/img ,assets/xxx/xxx...  )
+     <br>
     ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
@@ -18,7 +42,8 @@
     <actions>
         <!-- Add your actions here -->
         <action id="com.xiaxiayige.help.FlutterAssetsSync" class="com.xiaxiayige.help.FlutterAssetsSync"
-                text="FlutterAssetSync" description="auto import images file to assets folder ,and Automatic generated r.dart file (Same as Android R.class)">
+                text="FlutterAssetSync"
+                description="auto import images file to assets folder ,and Automatic generated r.dart file (Same as Android R.class)">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
     </actions>

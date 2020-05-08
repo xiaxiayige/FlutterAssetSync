@@ -57,7 +57,7 @@ object Utils {
             errorMsg = "${e.localizedMessage}"
         }
         println("time = > " + (System.currentTimeMillis() - startime))
-        Messages.showMessageDialog("操作完成", "提示", null)
+        Messages.showMessageDialog("success", "tips", null)
         return errorMsg
     }
 
@@ -118,7 +118,7 @@ object Utils {
         targetFileLineList: MutableList<String>,
         bufferedReader: BufferedReader
     ) {
-        val newFile = File(yamlPath + ".temp")
+        val newFile = File(yamlPath)
         if (!newFile.exists()) {
             newFile.createNewFile()
         }

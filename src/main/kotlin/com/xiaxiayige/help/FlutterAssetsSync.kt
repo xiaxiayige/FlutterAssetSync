@@ -27,12 +27,12 @@ class FlutterAssetsSync : AnAction() {
         project = e.project
         projectBaseDir = project?.basePath ?: ""
         if (!checkIsFlutterProject()) {
-            Messages.showMessageDialog("这不是一个Flutter项目,不可使用该插件 \n:(", "提示", null)
+            Messages.showMessageDialog("this is not flutter project \n:(", "tips", null)
             return
         }
 
         if (!checkAssetsDir()) {
-            Messages.showMessageDialog("对不起,我只能识别assets文件夹哦 \n:(", "提示", null)
+            Messages.showMessageDialog("please check 'assets' folder is exist \n:(", "tips", null)
             return
         }
         //file.parentFile {C:\Users\xiaxi\AndroidStudioProjects\MyApplication\assets\b=[b.png, bb.png], C:\Users\xiaxi\AndroidStudioProjects\MyApplication\assets\a=[a.png, aa.png], C:\Users\xiaxi\AndroidStudioProjects\MyApplication\assets=[crane_card_dark.png, fortnightly_card.png, fortnightly_card_dark.png]}
@@ -52,7 +52,7 @@ class FlutterAssetsSync : AnAction() {
         val result = Utils.writYamlFile(fileModels, projectBaseDir + File.separator + PUBSPEC,projectBaseDir)
 
         if (!result.isNullOrEmpty()) {
-            Messages.showMessageDialog("$result :(", "提示", null)
+            Messages.showMessageDialog("$result :(", "tips", null)
         }
 
     }

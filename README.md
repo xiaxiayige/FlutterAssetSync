@@ -18,7 +18,7 @@ Flutter Assets Image Sync, Automatic generated r.dart file ,reference image reso
 	Create 'assets' folder in your flutter project(this plugin only support identify 'assets' folder )
 
 
-![](imgs/1.gif)
+![](1.gif)
 
 ## Setp 2
 

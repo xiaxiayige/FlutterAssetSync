@@ -28,6 +28,7 @@
      Support child folder,but please keep parent folder name = 'assets' ,<br>
      <font color='red'>only parent support folder name = 'assets'</font><br>
      <br>(eg:parent folder name is asset,image... is not support, eg: support type of  assets/image,assets/img ,assets/xxx/xxx...  )
+     <br>Currently does not distinguish between file types
      <br>
     ]]></description>
 

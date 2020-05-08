@@ -54,7 +54,7 @@ class FlutterAssetsSync : AnAction() {
         if (!result.isNullOrEmpty()) {
             Messages.showMessageDialog("$result :(", "tips", null)
         }
-
+        project?.getBaseDir()?.refresh(false,true);
     }
 
 
@@ -81,6 +81,7 @@ class FlutterAssetsSync : AnAction() {
 
     override fun update(e: AnActionEvent) {
         super.update(e)
+        e.place
     }
 
     //检查assets文件夹是否存在

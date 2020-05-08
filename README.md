@@ -17,8 +17,9 @@ Flutter Assets Image Sync, Automatic generated r.dart file ,reference image reso
 
 	create folder 'assets' folder of your project
 
+<br>
 
-![ScreenShot1](1.gif)
+<img src="1.gif" />
 
 
 ## Setp 2

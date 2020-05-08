@@ -19,7 +19,7 @@ Flutter Assets Image Sync, Automatic generated r.dart file ,reference image reso
 
 <br>
 
-<img src="1.gif" />
+<img src="1.gif?raw=true" />
 
 
 ## Setp 2

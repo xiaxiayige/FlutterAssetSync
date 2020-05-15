@@ -33,7 +33,7 @@ object Utils {
             val targetFileLineList = sourceFileLineList.toMutableList()
             var assetsIndex = -1
             sourceFileLineList.forEachIndexed { index, str ->
-//                println(str)
+                //                println(str)
                 if (str.replace(" ", "") == "#assets:") {
                     errorMsg = "assets tag contain ‘#’ , Can't be #assets,please detele '#' tag"
                     return@forEachIndexed
@@ -96,15 +96,25 @@ object Utils {
             //获取字段名称
             //1.如果是在assets目录下的 则直接是R.文件名 引用
             //2.如果是在assets的子目录 如assets/image/或者 assets/home 目录 则引用为    R.image_文件名  或者 R.home_文件名 （主要区分不同模块）
-            val arr=next.key.replaceFirst("/","").split("/")
-            if(arr.size==1){ //表示只有assets文件
+            val arr = next.key.replaceFirst("/", "").split("/")
+            if (arr.size == 1) { //表示只有assets文件
                 for (fileModel in next.value) {
-                    bos.write("\n\tstatic const String ${fileModel.fileName.split(".")[0]} = \"${fileModel.dir.replaceFirst("/","")}/${fileModel.fileName}\";".toByteArray())
+                    bos.write(
+                        "\n\tstatic const String ${fileModel.fileName.split(".")[0]} = \"${fileModel.dir.replaceFirst(
+                            "/",
+                            ""
+                        )}/${fileModel.fileName}\";".toByteArray()
+                    )
                 }
-            }else{
+            } else {
                 val name = next.key.replace("/assets/", "").replace("/", "_")
                 for (fileModel in next.value) {
-                    bos.write("\n\tstatic const String ${name+"_"+fileModel.fileName.split(".")[0]} = \"${fileModel.dir.replaceFirst("/","")}/${fileModel.fileName}\";".toByteArray())
+                    bos.write(
+                        "\n\tstatic const String ${name + "_" + fileModel.fileName.split(".")[0]} = \"${fileModel.dir.replaceFirst(
+                            "/",
+                            ""
+                        )}/${fileModel.fileName}\";".toByteArray()
+                    )
                 }
             }
         }
@@ -147,13 +157,19 @@ object Utils {
                 next.value.forEachIndexed { index, fileModel ->
                     //需要插入的行 不能使用tab，只能怪使用空格缩进
                     val insertElement = "    - assets/" + fileModel.fileName
-                    // todo checkedIsSameLine() 检查是否有相同的行数
-                    targetFileLineList.add(assetsIndex + index + 1, insertElement)
+                    //过滤重复数据
+                    val filter = targetFileLineList.filter { insertElement.trim() == it.trim() }
+                    if (filter.isEmpty()) {
+                        targetFileLineList.add(assetsIndex + index + 1, insertElement)
+                    }
                 }
             } else {
                 //需要插入的行
                 val insertElement = "    - " + next.key.replaceFirst("/", "") + "/"
-                targetFileLineList.add(assetsIndex + 1, insertElement)
+                val filter = targetFileLineList.filter { insertElement.trim() == it.trim() }
+                if (filter.isEmpty()) {
+                    targetFileLineList.add(assetsIndex + 1, insertElement)
+                }
             }
         }
     }

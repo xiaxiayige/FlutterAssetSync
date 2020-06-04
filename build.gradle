@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.xiaxiayige'
-version '1.0.2-SNAPSHOT'
+version '1.0.3-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -37,5 +37,12 @@ patchPluginXml {
     changeNotes """ 
       Flutter Assets Image Sync</br>
       Automatic generated r.dart file ,reference image resource file .(Same as Android R.class)<br>
-      Plugin Detail See https://github.com/xiaxiayige/FlutterAssetSync """
+      Plugin Detail See https://github.com/xiaxiayige/FlutterAssetSync 
+      
+      ChangeLog:
+      1.0.3-SNAPSHOT:
+      
+         Support Android Studio 4.0
+      
+      """
 }

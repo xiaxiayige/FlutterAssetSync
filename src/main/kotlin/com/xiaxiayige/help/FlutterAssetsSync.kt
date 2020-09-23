@@ -43,14 +43,19 @@ class FlutterAssetsSync : AnAction() {
 
         getFile(assetsFileDir.listFiles())
         val fileModels = ArrayList<FileModel>()
-        arrayListMultimap.forEach { t, u ->
-            fileModels.add(FileModel(t, u))
+        val regex1 = Regex("^[0-9]") //数字开头
+        val matches = regex1.toPattern()
+        arrayListMultimap.forEach continues@{ t, u ->
+            //检查是否存在数字开头的文件名
+            val isExist = matches.matcher(u).find()
+            if(u.startsWith(".") || isExist){
+                return@continues
+            }else{
+                fileModels.add(FileModel(t, u))
+            }
         }
 
-        print(fileModels)
-
         val result = Utils.writYamlFile(fileModels, projectBaseDir + File.separator + PUBSPEC,projectBaseDir)
-
         if (!result.isNullOrEmpty()) {
             Messages.showMessageDialog("$result :(", "tips", null)
         }

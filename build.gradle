@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.xiaxiayige'
-version '1.0.3-SNAPSHOT'
+version '1.0.4-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -25,7 +25,8 @@ intellij {
 }
 runIde{
 //    ideDirectory 'C:\\Program Files\\Android\\Android Studio'
-    ideDirectory 'F:\\Program Files\\Android\\Android Studio'
+//    ideDirectory 'F:\\Program Files\\Android\\Android Studio'
+    ideDirectory 'D:\\AndroidStudio'
 }
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
@@ -43,6 +44,10 @@ patchPluginXml {
       1.0.3-SNAPSHOT:
       
          Support Android Studio 4.0
+         
+      1.0.4-SNAPSHOT:
+      
+         filtering file rules（eg: MAC OS .DC_STORE and file name starting with a number）
       
       """
 }

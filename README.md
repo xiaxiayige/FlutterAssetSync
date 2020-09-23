@@ -82,5 +82,8 @@ Reference Image Resources
 
 	1.change Automatic generated pubspec.yaml.temp to auto update source pubspec.yaml file 
 
+    v1.0.4
+    
+    filtering file rules（eg: MAC OS .DC_STORE and file name starting with a number）
 
 

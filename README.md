@@ -85,5 +85,9 @@ Reference Image Resources
     v1.0.4
     
     filtering file rules（eg: MAC OS .DC_STORE and file name starting with a number）
+    
+    v1.0.5
+        
+    Support Android Studio 4.1
 
 

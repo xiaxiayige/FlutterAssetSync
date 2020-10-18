@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.xiaxiayige'
-version '1.0.4-SNAPSHOT'
+version '1.0.5-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -18,15 +18,16 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '193.6911.18'
+    version '201.8743.12'
+//    version '193.6911.18'
 //    version '192.7142.36'
     type 'IC'
     plugins 'android'
 }
 runIde{
-//    ideDirectory 'C:\\Program Files\\Android\\Android Studio'
+    ideDirectory 'C:\\Program Files\\Android\\Android Studio'
 //    ideDirectory 'F:\\Program Files\\Android\\Android Studio'
-    ideDirectory 'D:\\AndroidStudio'
+//    ideDirectory 'D:\\AndroidStudio'
 }
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
@@ -48,6 +49,10 @@ patchPluginXml {
       1.0.4-SNAPSHOT:
       
          filtering file rules（eg: MAC OS .DC_STORE and file name starting with a number）
+         
+      1.0.5-SNAPSHOT:
+      
+         Support Android Studio 4.1
       
       """
 }

@@ -37,14 +37,15 @@
 <!--    <depends>com.intellij.modules.platform</depends>-->
 
     <depends>com.intellij.modules.androidstudio</depends>
-
+    <idea-version since-build="202" until-build="202.*"/>
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
     <actions>
         <!-- Add your actions here -->
-        <action id="com.xiaxiayige.help.FlutterAssetsSync" class="com.xiaxiayige.help.FlutterAssetsSync"
+        <action id="com.xiaxiayige.help.FlutterAssetsSync"
+                class="com.xiaxiayige.help.FlutterAssetsSync"
                 text="FlutterAssetSync"
                 description="auto import images file to assets folder ,and Automatic generated r.dart file (Same as Android R.class)">
             <add-to-group group-id="ToolsMenu" anchor="first"/>

@@ -1,41 +1,49 @@
-package com.xiaxiayige.help
+package com.xiaxiayige.flutter.assetsync.utils
 
 import com.intellij.openapi.ui.Messages
+import com.xiaxiayige.flutter.assetsync.entity.FileModel
 import java.io.*
-import java.util.concurrent.Executor
+import java.nio.charset.StandardCharsets
 import kotlin.streams.toList
 
-object Utils {
+
+/**
+ * @description: 处理 yaml 文件工具类
+ * @author : xiaxiayige@163.com
+ * @date: 2021/11/27
+ * @version: 1.1.0
+ */
+object YamlFileUtils {
 
     //1.把数据 写入pubspec.yaml 文件
     //2.生成R.目录_文件名的dart文件，用于快速获取文件
-
     fun writYamlFile(arrayList: ArrayList<FileModel>, yamlPath: String, projectDir: String): String {
-        val startime = System.currentTimeMillis()
+        val starTime = System.currentTimeMillis()
         var errorMsg = ""
-        if (yamlPath.isNullOrEmpty() || arrayList.isNullOrEmpty()) {
+
+        if (yamlPath.isEmpty() || arrayList.isEmpty()) {
             errorMsg = "yaml path not found or assets resource not found"
             return errorMsg
         }
-        val yamlFile = File(yamlPath)
 
+        val yamlFile = File(yamlPath)
         if (!yamlFile.exists()) {
-            errorMsg = "yaml file not found,pleace checked"
+            errorMsg = "yaml file not found,place checked"
             return errorMsg
         }
+
         //过滤出有文件夹的
         val sourceData = arrayList.groupBy { it.dir }
 
         try {
             //先读取文件，然后在指定地方写入文件
-            val bufferedReader = BufferedReader(FileReader(yamlFile))
+            val bufferedReader = BufferedReader(FileReader(yamlFile,StandardCharsets.UTF_8))
             val sourceFileLineList = bufferedReader.lines().toList()
             val targetFileLineList = sourceFileLineList.toMutableList()
             var assetsIndex = -1
             sourceFileLineList.forEachIndexed { index, str ->
-                //                println(str)
                 if (str.replace(" ", "") == "#assets:") {
-                    errorMsg = "assets tag contain ‘#’ , Can't be #assets,please detele '#' tag"
+                    errorMsg = "Please replace \'#assets:\' -> \'assets:\' , from yaml"
                     return@forEachIndexed
                 } else if (str.replace(" ", "") == "assets:") {
                     assetsIndex = index
@@ -54,10 +62,13 @@ object Utils {
             createDartClass(sourceData, projectDir)
         } catch (e: Exception) {
             e.printStackTrace()
-            errorMsg = "${e.localizedMessage}"
+            errorMsg = e.localizedMessage
         }
-        println("time = > " + (System.currentTimeMillis() - startime))
+
+        println("time = > " + (System.currentTimeMillis() - starTime))
+
         Messages.showMessageDialog("success", "tips", null)
+
         return errorMsg
     }
 
@@ -79,18 +90,19 @@ object Utils {
         }
 
         val targetFile = File(targetFileDir, "r.dart")
+
         if (targetFile.exists()) {
             targetFile.delete()
         }
+
         targetFile.createNewFile()
 
-        val ous = FileOutputStream(targetFile)
+        val out = BufferedWriter(OutputStreamWriter(FileOutputStream(targetFile), StandardCharsets.UTF_8))
 
-        val bos = BufferedOutputStream(ous)
         //FileModel(dir=/assets, fileName=crane_card_dark.png)
         //FileModel(dir=/assets/b, fileName=b.png)
         val iterator = sourceData.iterator()
-        bos.write("class R {".toByteArray())
+        out.write("class R {")
         while (iterator.hasNext()) {
             val next = iterator.next()
             //获取字段名称
@@ -99,28 +111,32 @@ object Utils {
             val arr = next.key.replaceFirst("/", "").split("/")
             if (arr.size == 1) { //表示只有assets文件
                 for (fileModel in next.value) {
-                    bos.write(
-                        "\n\tstatic const String ${fileModel.fileName.split(".")[0]} = \"${fileModel.dir.replaceFirst(
-                            "/",
-                            ""
-                        )}/${fileModel.fileName}\";".toByteArray()
+                    out.write(
+                        "\n\tstatic const String ${fileModel.fileName.split(".")[0]} = \"${
+                            fileModel.dir.replaceFirst(
+                                "/",
+                                ""
+                            )
+                        }/${fileModel.fileName}\";"
                     )
                 }
             } else {
                 val name = next.key.replace("/assets/", "").replace("/", "_")
                 for (fileModel in next.value) {
-                    bos.write(
-                        "\n\tstatic const String ${name + "_" + fileModel.fileName.split(".")[0]} = \"${fileModel.dir.replaceFirst(
-                            "/",
-                            ""
-                        )}/${fileModel.fileName}\";".toByteArray()
+                    out.write(
+                        "\n\tstatic const String ${name + "_" + fileModel.fileName.split(".")[0]} = \"${
+                            fileModel.dir.replaceFirst(
+                                "/",
+                                ""
+                            )
+                        }/${fileModel.fileName}\";"
                     )
                 }
             }
         }
-        bos.write("\n}".toByteArray())
-        bos.flush()
-        bos.close()
+        out.write("\n}")
+        out.flush()
+        out.close()
     }
 
     private fun writeData(
@@ -132,7 +148,7 @@ object Utils {
         if (!newFile.exists()) {
             newFile.createNewFile()
         }
-        val bufferedWriter = BufferedWriter(FileWriter(newFile))
+        val bufferedWriter = BufferedWriter(FileWriter(newFile,StandardCharsets.UTF_8))
         targetFileLineList.forEach {
             bufferedWriter.write(it)
             bufferedWriter.newLine()
@@ -173,10 +189,4 @@ object Utils {
             }
         }
     }
-
-    fun checkedIsSameLine(insertLine: String) {
-
-    }
-
-
 }

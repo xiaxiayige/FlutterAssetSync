@@ -6,48 +6,72 @@
     <description><![CDATA[
 
     Flutter Assets Image Sync, Automatic generated r.dart file ,reference image resource file.
-    (Same as Android R.class),more info see <a href='https://github.com/xiaxiayige/FlutterAssetSync'>GitHub</a></p>
+    (Same as Android R.class),more info see <a href='https://github.com/xiaxiayige/FlutterAssetSync'>GitHub</a>
+
     <br>
+
     <h2>1.How To Use</h2>
+
+    <br>
+
     <ul>
         <li>0.create folder 'assets' folder of your project</li>
         <li>1.Copy Image resource to assets folder or assets/xxx child folder (<font color='red'>only support parent folder name = 'assets'</font>)</li>
         <li>2.Click tools menu -> Select flutterAssetSync </li>
     </ul>
 
+    <br>
+
     <p>Result:Automatic generated r.dart file,And auto update pubspec.yaml file</p>
+
     <br>
+
     effect eg:
+
     <br>
-    <font color='green'>
-    Image.asset(R.fileName)
+
+    <font color='green'> Image.asset(R.fileName) or  Image.asset(R.foldername_fileName) </font>
+
     <br>
-    Image.asset(R.foldername_fileName)</font>
-    <br>
+
     <h2>2.Note</h2>
-     Support child folder,but please keep parent folder name = 'assets' ,<br>
-     <font color='red'>only parent support folder name = 'assets'</font><br>
-     <br>(eg:parent folder name is asset,image... is not support, eg: support type of  assets/image,assets/img ,assets/xxx/xxx...  )
-     <br>Currently does not distinguish between file types
+
+    <br>
+
+    Support child folder,but please keep parent folder name = 'assets' ,
+
+    <br>
+
+    <font color='red'>only parent support folder name = 'assets'</font>
+
+    <br>
+
+     (eg:parent folder name is asset,image... is not support, eg: support type of  assets/image,assets/img ,assets/xxx/xxx...  )
+
      <br>
+
+     Currently does not distinguish between file types
+
+     <br>
+
     ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-<!--    <depends>com.intellij.modules.platform</depends>-->
+    <!--    <depends>com.intellij.modules.platform</depends>-->
 
     <depends>com.intellij.modules.androidstudio</depends>
-    <idea-version since-build="202" until-build="202.*"/>
+
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
     <actions>
         <!-- Add your actions here -->
-        <action id="com.xiaxiayige.help.FlutterAssetsSync"
-                class="com.xiaxiayige.help.FlutterAssetsSync"
+        <action id="com.xiaxiayige.flutter.assetsync.action.FlutterAssetsSyncAction"
+                class="com.xiaxiayige.flutter.assetsync.action.FlutterAssetsSyncAction"
                 text="FlutterAssetSync"
-                description="auto import images file to assets folder ,and Automatic generated r.dart file (Same as Android R.class)">
+                description="Auto import images file to assets folder ,and automatic generated r.dart file (same as android r.class)">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
     </actions>
